@@ -1,0 +1,119 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary:#fff;
+    --secondary:#c95b12;
+   
+}
+body{
+    height: 100vh;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
+    
+}
+.container{
+    width: 60%;
+    min-width: 500px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 30px;
+    padding: 3rem 4rem;
+}
+.heading{
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    color:var(--primary);
+    border-bottom:2px solid var(--secondary);
+    padding-bottom: .5rem;;
+}
+#newtask{
+    position: relative;
+    background-color:var(--primary);
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+#newtask input{
+    width: 70%;
+    width: 70%;
+    height: 45px;
+    font-family: 'Roboto',sans-serif;
+    font-size: 15px;
+    border: 2px solid #d1d3d4;
+    padding: .4rem 2rem;
+    color: #111111;
+    font-weight: 500;
+    position: relative;
+    border-radius: 5px;
+}
+#newtask input:focus{
+    outline: none;
+    border-color:var( --secondary);
+}
+
+#newtask button{
+    position: relative;
+    float: right;
+    width: 20%;
+    height: 45px;
+    border-radius: 5px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: var(--secondary);
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+#tasks{
+    background-color: #ffffff;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    width: 100%;
+    position: relative;
+}
+.task{
+    background-color: #ffffff;
+    height: 50px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #d1d3d4;
+    cursor: pointer;
+}
+.task span{
+    font-family: 'Roboto',sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+.task button{
+    background-color:var(--secondary );
+    color: #ffffff;
+    height: 100%;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.task button:hover,
+#newtask button:hover{
+    background-color:rgb(233, 179, 79);
+    
+}
+.completed{
+    text-decoration: line-through;
+}

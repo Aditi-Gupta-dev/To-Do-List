@@ -12,7 +12,10 @@
 }
 body{
     height: 100vh;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
+    background:linear-gradient(rgba(236, 219, 219, 0.147),#ebdfdf12),url("../img/todo.jpg" );
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: right;
     
 }
 .container{

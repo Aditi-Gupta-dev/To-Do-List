@@ -1,33 +1,59 @@
-document.querySelector('#push').onclick = function(){
-  if(document.querySelector('#newtask input').value.length == 0){
-      alert("Input Field Cannot Be Empty !")
-  }
-  else{
-      document.querySelector('#tasks').innerHTML += `
-          <div class="task">
-              <span id="taskname">
-                  ${document.querySelector('#newtask input').value}
-              </span>
-              <button class="delete">
-                  <i class="far fa-trash-alt"></i>
-              </button>
-          </div>
-      `;
+document.addEventListener("DOMContentLoaded", function () {
+    const newTaskInput = document.querySelector("#newtask input");
+    const addTaskButton = document.querySelector("#push");
+    const tasksContainer = document.querySelector("#tasks");
+    const completedTasksContainer = document.querySelector("#completed-tasks");
 
-      var current_tasks = document.querySelectorAll(".delete");
-      for(var i=0; i<current_tasks.length; i++){
-          current_tasks[i].onclick = function(){
-              this.parentNode.remove();
-          }
-      }
+    addTaskButton.addEventListener("click", addTask);
 
-      var tasks = document.querySelectorAll(".task");
-      for(var i=0; i<tasks.length; i++){
-          tasks[i].onclick = function(){
-              this.classList.toggle('completed');
-          }
-      }
+    function addTask() {
+        const taskText = newTaskInput.value.trim();
+        if (taskText !== "") {
+            const taskElement = createTaskElement(taskText);
+            tasksContainer.appendChild(taskElement);
+            newTaskInput.value = "";
+        } else {
+            alert("Input cannot be empty!");
+        }
+    }
 
-      document.querySelector("#newtask input").value = "";
-  }
-}
+    function createTaskElement(taskText) {
+        const taskElement = document.createElement("div");
+        taskElement.className = "task";
+        taskElement.innerHTML = `
+            <input type="checkbox">
+            <p>${taskText}</p>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-trash"></i>
+        `;
+
+        const checkbox = taskElement.querySelector("input[type='checkbox']");
+        const checkIcon = taskElement.querySelector(".fa-check-circle");
+        const deleteIcon = taskElement.querySelector(".fa-trash");
+
+        checkbox.addEventListener("change", function () {
+            if (checkbox.checked) {
+                tasksContainer.removeChild(taskElement);
+                completedTasksContainer.appendChild(taskElement);
+                checkIcon.style.display = "none";
+                deleteIcon.style.display = "inline";
+            } else {
+                completedTasksContainer.removeChild(taskElement);
+                tasksContainer.appendChild(taskElement);
+                checkIcon.style.display = "inline";
+                deleteIcon.style.display = "none";
+            }
+        });
+
+        deleteIcon.addEventListener("click", function () {
+            if (checkbox.checked) {
+                completedTasksContainer.removeChild(taskElement);
+            } else {
+                tasksContainer.removeChild(taskElement);
+            }
+        });
+
+        return taskElement;
+    }
+
+});

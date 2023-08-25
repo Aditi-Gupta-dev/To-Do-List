@@ -13,7 +13,7 @@
 body{
     height:100vh;
     font-family: 'Roboto', sans-serif;
-    background:linear-gradient(rgba(236, 219, 219, 0.147),#ebdfdf12),url("../img/todo.jpg" );
+    background:linear-gradient(rgba(236, 219, 219, 0.147),#ebdfdf12),url("img/todo.jpg" );
     background-size:cover;
     background-repeat: no-repeat;
     background-position: right;
